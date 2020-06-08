@@ -1,0 +1,65 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Docker Image",
+            "type": "shell",
+            "command": "docker pull lacledeslan/gamesvr-goldsource; docker build . -f linux.Dockerfile -t lltest/gamesvr-goldsource-tfc --no-cache --build-arg BUILDNODE=$env:computername;",
+            "group": "build",
+            "problemMatcher": [],
+            "promptOnClose": true
+        },
+        {
+            "label": "Build & Execute Self Tests",
+            "type": "shell",
+            "command": "docker run -it --rm lltest/gamesvr-goldsource-tfc ./ll-tests/gamesvr-goldsource-tfc.sh;",
+            "dependsOn": "Build Docker Image",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "promptOnClose": true
+        },
+        {
+            "label": "Build & Run Interactive Server",
+            "type": "shell",
+            "linux" :{
+                "command": "docker run -it --net=host lltest/gamesvr-goldsource-tfc ./hlds_run -game tfc -norestart +map 2fort +maxplayers 20;",
+            },
+            "windows": {
+                "command": "$IP=((Get-WmiObject -Class Win32_NetworkAdapterConfiguration | where {$_.DefaultIPGateway -ne $null}).IPAddress | select-object -first 1); docker run -it -p ${IP}:27015:27015/udp -p ${IP}:27015:27015/tcp lltest/gamesvr-goldsource-tfc ./hlds_run -game tfc -norestart +map 2fort +maxplayers 20;"
+            },
+            "dependsOn": "Build Docker Image",
+            "group": "build",
+            "problemMatcher": [],
+            "promptOnClose": true
+        },
+        {
+            "label": "Build & Shell In",
+            "type": "shell",
+            "command": "docker run -it --net=host --rm lltest/gamesvr-goldsource-tfc;",
+            "dependsOn": "Build Docker Image",
+            "group": "build",
+            "problemMatcher": [],
+            "promptOnClose": true
+        },
+        {
+            "label": "Download git submodules",
+            "type": "shell",
+            "command": "git submodule foreach git pull origin master;",
+            "identifier": "download-sub-modules",
+            "problemMatcher": [],
+            "promptOnClose": true
+        },
+        {
+            "label": "Update git submodules",
+            "type": "shell",
+            "command": "git submodule update --recursive --remote;",
+            "problemMatcher": [],
+            "promptOnClose": true
+        }
+    ]
+}
