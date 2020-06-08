@@ -1,0 +1,3 @@
+[submodule "amxmod"]
+	path = amxmod
+	url = https://github.com/LacledesLAN/amxmodx
