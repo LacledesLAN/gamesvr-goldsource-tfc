@@ -32,6 +32,8 @@ RUN usermod -l TFC GoldSource &&`
     mkdir -p /app/tfc/logs &&`
     chmod 775 /app/tfc/logs;
 
+RUN echo 20 > /app/steam_appid.txt;
+
 USER TFC
 
 WORKDIR /app
