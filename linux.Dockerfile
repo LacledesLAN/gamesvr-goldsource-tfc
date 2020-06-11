@@ -24,8 +24,6 @@ COPY --chown=GoldSource:root ./amxmod/amxmodx_ll-config /app/tfc/addons/amxmodx
 
 COPY --chown=GoldSource:root ./dist/tfc /app
 
-COPY --chown=GoldSource:root ./dist/linux/ll-tests /app/ll-tests
-
 # UPDATE USERNAME & ensure permissions
 RUN usermod -l TFC GoldSource &&`
     chmod +x /app/ll-tests/*.sh &&`
