@@ -4,7 +4,9 @@ This repository is maintained by [Laclede's LAN](https://lacledeslan.com). Its c
 
 ## Linux
 
-TODO: Badges
+[![Build Status](https://travis-ci.org/LacledesLAN/gamesvr-goldsource-tfc.svg?branch=master)](https://travis-ci.org/LacledesLAN/gamesvr-goldsource-tfc)
+[![](https://images.microbadger.com/badges/image/lacledeslan/gamesvr-goldsource-tfc.svg)](https://microbadger.com/images/lacledeslan/gamesvr-goldsource-tfc "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/lacledeslan/gamesvr-goldsource-tfc.svg)](https://microbadger.com/images/lacledeslan/gamesvr-goldsource-tfc "Get your own version badge on microbadger.com")
 
 ### Download
 

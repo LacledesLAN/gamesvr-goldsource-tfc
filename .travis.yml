@@ -25,3 +25,5 @@ deploy:
   script: docker push lacledeslan/gamesvr-goldsource-tfc
   on:
     branch: master
+after_deploy:
+  - curl -X POST https://hooks.microbadger.com/images/lacledeslan/gamesvr-goldsource/$MICROBADGER_TOKEN
