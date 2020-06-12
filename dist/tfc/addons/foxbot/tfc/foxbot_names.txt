@@ -30,13 +30,46 @@
 "[bot]Sinclair 2K"
 "[bot]Patchcord Adams"
 "[bot]Linctron"
-[bot]
-[bot]
-[bot]
-[bot]
-[bot]
-[bot]
-[bot]
-[bot]
-[bot]
-[bot]
+[bot]Andromeda
+[bot]Granatoid
+[bot]Chumblies
+[bot]Raddion
+[bot]Windam
+[bot]Nomad
+[bot]Zed
+"[bot]S.A.M."
+[bot]MM7
+[bot]Questor
+[bot]Gwent
+[bot]Draco
+[bot]7-Zark-7
+[bot]Kamelion
+"[bot]Metal Mickey"
+[bot]Voltron
+[bot]Tobor
+[bot]Blinky
+"[bot]Sgt. Eve Edison"
+[bot]THELMA
+[bot]Torch
+[bot]Janperson
+"[bot]Chitron 6"
+[bot]Linguo
+"[bot]Mr Dent"
+[bot]Thundercleese
+[bot]Norm
+[bot]Argus
+[bot]Barry-6
+"[bot]B.O.Y.D."
+[bot]Snacky
+[bot]CY.T.R.O.
+"[bot]Diamond Dog"
+[bot]Dropkick
+"[bot]Green Lion"
+[bot]Heistotron
+[bot]Kraken
+[bot]Lyle
+[bot]RoboPerry
+[bot]Radbot
+"[bot]Lady Ada"
+[bot]Otomox
+"[bot]Carl Swangee"
