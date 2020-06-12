@@ -10,3 +10,6 @@ trim_trailing_whitespace = true
 
 [motd.txt]
 insert_final_newline = false
+
+[liblist.gam]
+insert_final_newline = false

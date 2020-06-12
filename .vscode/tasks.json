@@ -27,10 +27,10 @@
             "label": "Build & Run Interactive Server",
             "type": "shell",
             "linux" :{
-                "command": "docker run -it --net=host lltest/gamesvr-goldsource-tfc ./hlds_run -game tfc -norestart +map 2fort +maxplayers 20;",
+                "command": "docker run -it --rm --net=host lltest/gamesvr-goldsource-tfc ./hlds_run -game tfc -norestart +map 2fort +maxplayers 20;",
             },
             "windows": {
-                "command": "$IP=((Get-WmiObject -Class Win32_NetworkAdapterConfiguration | where {$_.DefaultIPGateway -ne $null}).IPAddress | select-object -first 1); docker run -it -p ${IP}:27015:27015/udp -p ${IP}:27015:27015/tcp lltest/gamesvr-goldsource-tfc ./hlds_run -game tfc -norestart +map 2fort +maxplayers 20;"
+                "command": "$IP=((Get-WmiObject -Class Win32_NetworkAdapterConfiguration | where {$_.DefaultIPGateway -ne $null}).IPAddress | select-object -first 1); docker run -it --rm -p ${IP}:27015:27015/udp -p ${IP}:27015:27015/tcp lltest/gamesvr-goldsource-tfc ./hlds_run -game tfc -norestart +map 2fort +maxplayers 20;"
             },
             "dependsOn": "Build Docker Image",
             "group": "build",

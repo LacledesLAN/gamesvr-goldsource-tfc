@@ -22,7 +22,7 @@ COPY --chown=GoldSource:root ./amxmod/amxmodx_addon_tfc /app/tfc/addons/amxmodx
 
 COPY --chown=GoldSource:root ./amxmod/amxmodx_ll-config /app/tfc/addons/amxmodx
 
-COPY --chown=GoldSource:root ./dist/tfc /app
+COPY --chown=GoldSource:root ./dist/tfc /app/tfc
 
 # UPDATE USERNAME & ensure permissions
 RUN usermod -l TFC GoldSource &&`
