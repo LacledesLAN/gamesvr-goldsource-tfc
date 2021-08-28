@@ -4,18 +4,19 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build Docker Image",
+            "label": "Linux - Build Docker Image",
             "type": "shell",
             "command": "docker pull lacledeslan/gamesvr-goldsource; docker build . -f linux.Dockerfile -t lltest/gamesvr-goldsource-tfc --no-cache --build-arg BUILDNODE=$env:computername;",
+            "dependsOn": "Download git submodules",
             "group": "build",
             "problemMatcher": [],
             "promptOnClose": true
         },
         {
-            "label": "Build & Execute Self Tests",
+            "label": "Linux - Build & Execute Self Tests",
             "type": "shell",
-            "command": "docker run -it --rm lltest/gamesvr-goldsource-tfc ./ll-tests/gamesvr-goldsource.tfc.sh;",
-            "dependsOn": "Build Docker Image",
+            "command": "docker run -it --rm lltest/gamesvr-goldsource-tfc ./ll-tests/gamesvr-goldsource-tfc.sh;",
+            "dependsOn": "Linux - Build Docker Image",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -24,7 +25,7 @@
             "promptOnClose": true
         },
         {
-            "label": "Build & Run Interactive Server",
+            "label": "Linux - Build & Run Interactive Server",
             "type": "shell",
             "linux" :{
                 "command": "docker run -it --rm --net=host lltest/gamesvr-goldsource-tfc ./hlds_run -game tfc -norestart +map 2fort +maxplayers 32;",
@@ -32,16 +33,16 @@
             "windows": {
                 "command": "$IP=((Get-WmiObject -Class Win32_NetworkAdapterConfiguration | where {$_.DefaultIPGateway -ne $null}).IPAddress | select-object -first 1); docker run -it --rm -p ${IP}:27015:27015/udp -p ${IP}:27015:27015/tcp lltest/gamesvr-goldsource-tfc ./hlds_run -game tfc -norestart +map 2fort +maxplayers 32;"
             },
-            "dependsOn": "Build Docker Image",
+            "dependsOn": "Linux - Build Docker Image",
             "group": "build",
             "problemMatcher": [],
             "promptOnClose": true
         },
         {
-            "label": "Build & Shell In",
+            "label": "Linux - Build & Shell In",
             "type": "shell",
             "command": "docker run -it --net=host --rm lltest/gamesvr-goldsource-tfc;",
-            "dependsOn": "Build Docker Image",
+            "dependsOn": "Linux - Build Docker Image",
             "group": "build",
             "problemMatcher": [],
             "promptOnClose": true

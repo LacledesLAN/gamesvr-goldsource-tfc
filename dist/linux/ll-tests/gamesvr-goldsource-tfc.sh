@@ -2,7 +2,7 @@
 
 #####################################################################################################
 ### CONFIG VARS #####################################################################################
-declare LLTEST_CMD="/app/hlds_run -norestart -insecure +sv_lan 1 -game tfc +map dustbowl +maxplayers 32;";
+declare LLTEST_CMD="/app/hlds_run -norestart -insecure +sv_lan 1 -game tfc +map dustbowl +maxplayers 8;";
 declare LLTEST_NAME="tfc-$(date '+%H%M%S')";
 #####################################################################################################
 #####################################################################################################
@@ -150,9 +150,11 @@ should_lack 'Running the dedicated server as root' 'Server is not running under 
 should_have 'Setting breakpad minidump AppID = 20' 'Steam App ID 20 is running';
 should_have 'Stdio (tfc)' 'tfc mod loaded';
 should_lack 'map change failed:' 'Map was able to load';
+should_have 'Metamod comes with ABSOLUTELY NO WARRANTY' 'Metamod initialized';
+should_have 'Executing AMX Mod X Configuration File' 'AMX Mod X initialized';
 
 # Verify server responds to commands
-should_echo "say LL TEST SCRIPT STARTING COMMAND TESTS" '> LL TEST SCRIPT STARTING COMMAND TESTS';
+should_echo 'say LL TEST SCRIPT STARTING COMMAND TESTS' '> LL TEST SCRIPT STARTING COMMAND TESTS';
 #####################################################################################################
 #####################################################################################################
 
