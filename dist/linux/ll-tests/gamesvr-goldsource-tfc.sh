@@ -148,7 +148,6 @@ fi;
 # Stock tfc server tests
 should_lack 'Running the dedicated server as root' 'Server is not running under root';
 should_have 'Setting breakpad minidump AppID = 20' 'Steam App ID 20 is running';
-should_have 'Stdio (tfc)' 'tfc mod loaded';
 should_lack 'map change failed:' 'Map was able to load';
 should_have 'Metamod comes with ABSOLUTELY NO WARRANTY' 'Metamod initialized';
 should_have 'Executing AMX Mod X Configuration File' 'AMX Mod X initialized';
