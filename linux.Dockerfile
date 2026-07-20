@@ -1,17 +1,19 @@
 FROM lacledeslan/gamesvr-goldsource
 
+ARG BUILD_DATE=unspecified \
+    BUILD_NODE=unspecified \
+    GIT_REVISION=unspecified
+
 HEALTHCHECK NONE
 
-ARG BUILD_NODE=unspecified
-ARG GIT_REVISION=unspecified
-
 LABEL architecture="amd64" \
-    com.lacledeslan.build-node="$BUILD_NODE" \
-    maintainer="Laclede's LAN <contact@lacledeslan.com>" \
-    org.opencontainers.image.description="Laclede's LAN Team Fortress Classic Dedicated Freeplay Server" \
-    org.opencontainers.image.revision="$GIT_REVISION" \
-    org.opencontainers.image.source="https://github.com/LacledesLAN/gamesvr-goldsource-tfc" \
-    org.opencontainers.image.vendor="Laclede's LAN"
+      com.lacledeslan.build-node="$BUILD_NODE" \
+      maintainer="Laclede's LAN <contact@lacledeslan.com>" \
+      org.opencontainers.image.created="$BUILD_DATE" \
+      org.opencontainers.image.description="Laclede's LAN Team Fortress Classic Dedicated Freeplay Server" \
+      org.opencontainers.image.revision="$GIT_REVISION" \
+      org.opencontainers.image.source="https://github.com/LacledesLAN/gamesvr-goldsource-tfc" \
+      org.opencontainers.image.vendor="Laclede's LAN"
 
 COPY --chown=GoldSource:root ./amxmod/metamod/metamod.so /app/tfc/addons/metamod/dlls/metamod.so
 
@@ -38,5 +40,3 @@ USER TFC
 WORKDIR /app
 
 CMD ["/bin/bash"]
-
-ONBUILD USER root
